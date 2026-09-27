@@ -1,0 +1,4 @@
+<aside class="callout"{% if include.title %} aria-label="{{ include.title | escape }}"{% endif %}>
+  {% if include.title %}<strong>{{ include.title | escape }}</strong>{% endif %}
+  {{ include.text | markdownify }}
+</aside>

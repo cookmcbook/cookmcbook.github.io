@@ -1,0 +1,38 @@
+---
+title: Software engineer
+---
+<section class="hero" aria-labelledby="intro-title">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="small-orbit" aria-hidden="true"></span> {{ site.data.profile.name | escape }} / {{ site.data.profile.role | escape }}</p>
+    <h1 id="intro-title">Hi, I'm Tony.<br><span class="muted">I make software.</span></h1>
+    <p class="hero-intro">{{ site.data.profile.intro | escape }}</p>
+    <p class="muted">{{ site.data.profile.summary | escape }}</p>
+    <div class="link-row hero-actions"><a class="button" href="{{ '/projects/' | relative_url }}">See my projects <span aria-hidden="true">↗</span></a><a class="text-link" href="#about">About me <span aria-hidden="true">↓</span></a></div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <img src="{{ '/assets/images/moon.jpg' | relative_url }}" alt="" width="2528" height="1684" fetchpriority="high">
+    <svg class="orbit-type" viewBox="0 0 400 400" focusable="false">
+      <defs><path id="name-orbit" d="M 200,200 m -174,0 a 174,174 0 1,1 348,0 a 174,174 0 1,1 -348,0" /></defs>
+      <text><textPath href="#name-orbit" textLength="1093">{{ site.data.profile.name | upcase | escape }} · BUILDING WITH CURIOSITY · SOFTWARE ENGINEER · </textPath></text>
+    </svg>
+    <span class="art-caption">Currently looking for the next good problem.</span>
+  </div>
+</section>
+
+{% assign selected = site.projects | sort: 'title' | where: 'featured', true %}
+{% if selected.size > 0 %}
+<section class="section" aria-labelledby="work-title">
+  <div class="section-heading"><div><p class="eyebrow">01 / Projects</p><h2 id="work-title">A few things I've made.</h2></div><a class="text-link" href="{{ '/projects/' | relative_url }}">See all <span aria-hidden="true">↗</span></a></div>
+  <div class="project-grid">{% for project in selected limit: 3 %}{% include project-card.html project=project %}{% endfor %}</div>
+</section>
+{% endif %}
+
+<section id="about" class="section about-section" aria-labelledby="about-title">
+  <div><p class="eyebrow">02 / About</p><h2 id="about-title">A little about me.</h2></div>
+  <div class="about-copy"><p class="large-copy">{{ site.data.profile.about | escape }}</p><p class="muted">This is where I keep a few projects and notes.</p><a class="text-link" href="{{ site.data.profile.links.first.url | escape }}">GitHub <span aria-hidden="true">↗</span></a></div>
+</section>
+
+<section id="contact" class="section contact-section" aria-labelledby="contact-title">
+  <p class="eyebrow">03 / Contact</p><h2 id="contact-title">Want to talk?</h2>
+  <a class="contact-link" href="mailto:{{ site.data.profile.email | escape }}">{{ site.data.profile.email | escape }} <span aria-hidden="true">↗</span></a>
+</section>

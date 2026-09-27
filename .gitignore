@@ -1,0 +1,12 @@
+/_site/
+/.jekyll-cache/
+/.jekyll-metadata
+/.sass-cache/
+/.bundle/
+/vendor/
+/.reference/
+/.preview-checks/
+.DS_Store
+Thumbs.db
+
+# Gemfile.lock must be committed once generated with Bundler.

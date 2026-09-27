@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="case-study">
+  <header class="case-header">
+    <a class="text-link" href="{{ '/projects/' | relative_url }}"><span aria-hidden="true">←</span> All projects</a>
+    <p class="eyebrow">{% if page.role %}{{ page.role | escape }} / {% endif %}Project notes</p>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.summary %}<p class="large-copy muted">{{ page.summary | escape }}</p>{% endif %}
+    {% include technologies.html technologies=page.technologies %}
+    {% include project-links.html project=page %}
+  </header>
+  {% if page.image %}<figure class="case-hero{% if page.mobile %} case-hero-mobile{% endif %}"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" width="{{ page.image_width | default: 1200 }}" height="{{ page.image_height | default: 800 }}" fetchpriority="high"></figure>{% endif %}
+  <div class="prose">{{ content }}</div>
+  {% if page.screenshots.size > 0 %}<div class="gallery">{% for shot in page.screenshots %}{% include figure.html src=shot.src alt=shot.alt width=shot.width height=shot.height caption=shot.caption %}{% endfor %}</div>{% endif %}
+  <nav class="case-navigation" aria-label="Project navigation"><a class="text-link" href="{{ '/projects/' | relative_url }}">← Back to all projects</a><a class="text-link" href="{{ '/#contact' | relative_url }}">Talk about this project ↗</a></nav>
+</article>

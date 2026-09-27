@@ -1,0 +1,44 @@
+title: "Tony Qing"
+description: "Software engineer building for the web, mobile, and everything in between. Explore Tony Qing's projects and engineering notes."
+lang: en
+timezone: America/Chicago
+
+# Set the production origin before publishing, with no trailing slash.
+# User site: url: https://username.github.io, baseurl: ""
+# Project site: same url, baseurl: /repository-name
+# Custom domain: url: https://example.com, baseurl: ""
+url: "https://tonyxqing.github.io"
+baseurl: ""
+
+markdown: kramdown
+highlighter: rouge
+permalink: /writing/:title/
+strict_front_matter: true
+future: false
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - docs
+  - templates
+  - scripts
+  - vendor
+  - .reference
+  - .preview-checks

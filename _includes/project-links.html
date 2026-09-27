@@ -1,0 +1,7 @@
+{% if include.project.github or include.project.demo or include.project.links.size > 0 %}
+<div class="link-row project-links">
+  {% if include.project.github %}<a class="button" href="{{ include.project.github | escape }}">Source code <span aria-hidden="true">↗</span></a>{% endif %}
+  {% if include.project.demo %}<a class="text-link" href="{{ include.project.demo | escape }}">View demo <span aria-hidden="true">↗</span></a>{% endif %}
+  {% for link in include.project.links %}<a class="text-link" href="{{ link.url | escape }}">{{ link.title | escape }}</a>{% endfor %}
+</div>
+{% endif %}

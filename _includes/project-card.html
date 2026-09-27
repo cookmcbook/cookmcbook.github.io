@@ -1,0 +1,13 @@
+<article class="project-card">
+  {% if include.project.image %}
+  <a class="project-image{% if include.project.mobile %} project-image-mobile{% endif %}" href="{{ include.project.url | relative_url }}" tabindex="-1" aria-hidden="true">
+    <img src="{{ include.project.image | relative_url }}" alt="" width="{{ include.project.image_width | default: 1200 }}" height="{{ include.project.image_height | default: 800 }}" loading="lazy" decoding="async">
+  </a>
+  {% endif %}
+  <div class="card-copy">
+    {% if include.project.role %}<p class="eyebrow">{{ include.project.role | escape }}</p>{% endif %}
+    <h3><a href="{{ include.project.url | relative_url }}">{{ include.project.title | escape }} <span aria-hidden="true">↗</span></a></h3>
+    {% if include.project.summary %}<p class="muted">{{ include.project.summary | escape }}</p>{% endif %}
+    {% include technologies.html technologies=include.project.technologies %}
+  </div>
+</article>

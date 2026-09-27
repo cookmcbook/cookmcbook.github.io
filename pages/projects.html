@@ -1,0 +1,8 @@
+---
+title: Projects
+permalink: /projects/
+description: "Explore Tony Qing's projects in web development, mobile applications, and data visualization."
+---
+<header class="page-heading"><p class="eyebrow">The project archive</p><h1>Built to explore.</h1><p class="large-copy muted">Web, mobile, data, and a few ideas that cross the boundaries.</p></header>
+{% assign projects = site.projects | sort: 'title' %}
+<div class="project-grid projects-index">{% for project in projects %}{% include project-card.html project=project %}{% endfor %}</div>
