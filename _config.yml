@@ -42,3 +42,4 @@ exclude:
   - vendor
   - .reference
   - .preview-checks
+  - "assets/Orange Tabby Cat Animation Sprite Sheet.png" # source for scripts/build-cat-sprites.py

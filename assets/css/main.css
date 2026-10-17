@@ -271,3 +271,14 @@ h2 { font-size: clamp(2rem, 4vw, 3.3rem); }
 .hero::before { content: "TONY QING / SOFTWARE ENGINEER"; color: #52647d; letter-spacing: .12em; }
 .hero-art::after { content: "just a picture of the moon"; color: #8fa1b9; letter-spacing: .04em; }
 .hero h1 { text-shadow: none; }
+
+/* Header cat (assets/js/header-cat.js); it walks behind the wordmark and links */
+.site-header { position: relative; }
+.site-header > :not(.header-cat) { position: relative; z-index: 1; }
+.site-header nav { pointer-events: none; }
+.site-header nav a { pointer-events: auto; }
+.header-cat { position: absolute; left: 0; bottom: 0; width: 64px; height: 51px; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
+.header-cat-sprite { display: block; width: 100%; height: 100%; background: url('../images/cat/cat-sprites.png') 0 0 / 576px 306px no-repeat; }
+.header-cat-bubble { position: absolute; top: .1rem; left: calc(100% - .8rem); padding: .05rem .4rem; color: var(--ink); background: var(--panel-strong); border: 1px solid var(--line); border-radius: 8px; font: .62rem/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: nowrap; pointer-events: none; opacity: 0; transform: translateY(4px); transition: opacity .2s ease, transform .2s ease; }
+.header-cat-bubble.is-left { left: auto; right: calc(100% - .8rem); }
+.header-cat-bubble.is-visible { opacity: 1; transform: none; }
